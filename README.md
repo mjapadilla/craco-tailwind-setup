@@ -1,13 +1,14 @@
 # Manila E-Citizen
 
-
 - Production -
 - Staging -
 - Test -
 - Develop -
 
 ```
-npm install
+npx husky-init && npm install
+or
+npx husky-init && yarn
 ```
 
 ### Run it as:

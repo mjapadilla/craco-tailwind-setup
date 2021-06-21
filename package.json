@@ -1,7 +1,7 @@
 {
   "name": "ecitizen-core",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@hookform/resolvers": "^2.6.0",

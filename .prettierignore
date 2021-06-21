@@ -1,0 +1,5 @@
+build
+node_modules
+craco.config.js
+tailwind.config.js
+src/reportWebVitals.js

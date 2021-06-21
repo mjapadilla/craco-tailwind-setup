@@ -1,8 +1,8 @@
-import React from "react";
-import cn from "classnames";
-import PropTypes from "prop-types";
-import placeholder from "assets/images/placeholder.svg";
-import { showModal } from "modules/common/modal";
+import React from 'react';
+import cn from 'classnames';
+import PropTypes from 'prop-types';
+import placeholder from 'assets/images/placeholder.svg';
+import { showModal } from 'modules/common/modal';
 
 const IconView = () => (
   <svg
@@ -67,8 +67,8 @@ function ViewImage({
     e.preventDefault();
     showModal({
       title: false,
-      modalSize: "modal-md 2xl:modal-lg",
-      containerClassName: "p-5 bg-white",
+      modalSize: 'modal-md 2xl:modal-lg',
+      containerClassName: 'p-5 bg-white',
       noClose: true,
       noEscButton: false,
       isFocusTrap: false,
@@ -86,9 +86,9 @@ function ViewImage({
 
   return (
     <div
-      className={cn("group relative w-full overflow-hidden", {
+      className={cn('group relative w-full overflow-hidden', {
         [`${containerClassName}`]: containerClassName,
-        "bg-gray-100": !containerClassName,
+        'bg-gray-100': !containerClassName,
       })}
     >
       {!imageLoaded && (
@@ -100,7 +100,7 @@ function ViewImage({
           </div>
         </div>
       )}
-      {imageLoaded && !srcError && src !== "" && (
+      {imageLoaded && !srcError && src !== '' && (
         <div
           role="presentation"
           className="cursor-pointer absolute h-full w-full transition duration-300 opacity-0 group-hover:opacity-100 group-hover:bg-primary-500 group-hover:bg-opacity-75"
@@ -114,7 +114,7 @@ function ViewImage({
       <img
         src={url}
         alt=""
-        className={cn("w-full", {
+        className={cn('w-full', {
           invisible: !imageLoaded,
           visible: imageLoaded,
           [`${height}`]: height,
@@ -128,10 +128,10 @@ function ViewImage({
 }
 
 ViewImage.defaultProps = {
-  height: "h-auto",
-  src: "",
+  height: 'h-auto',
+  src: '',
   containerClassName: false,
-  className: "object-fit",
+  className: 'object-fit',
   withLightBox: true,
   defaultSrc: placeholder, // "https://via.placeholder.com/128?text=Img",
 };

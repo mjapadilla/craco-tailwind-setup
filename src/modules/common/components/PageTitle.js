@@ -1,6 +1,6 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
 
 function PageTitle({ title }) {
   return (
@@ -11,7 +11,7 @@ function PageTitle({ title }) {
 }
 
 PageTitle.defaultProps = {
-  title: "Manila E-Citizen",
+  title: 'Manila E-Citizen',
 };
 
 PageTitle.propTypes = {

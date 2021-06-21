@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import uploadcare from "uploadcare-widget";
-import { autoCropFace } from "../helper";
+import React from 'react';
+import PropTypes from 'prop-types';
+import uploadcare from 'uploadcare-widget';
+import { autoCropFace } from '../helper';
 
 const localizeUrl = (file) => {
-  const arr = file.name.split(".");
+  const arr = file.name.split('.');
   const extension = arr.pop();
-  const filename = arr.join(".").replace(/[^a-zA-Z0-9_]/g, "");
+  const filename = arr.join('.').replace(/[^a-zA-Z0-9_]/g, '');
   const newFilename = `${filename}.${extension}`;
   return `https://photo.url.ph/${file.uuid}/${newFilename}`;
 };
@@ -38,28 +38,28 @@ function Uploader({
       validateUpload();
       setUploading(false);
       setProgressCount(0);
-      throw new Error("image");
+      throw new Error('image');
     }
 
-    if (["image/gif"].indexOf(mimeType) > -1) {
+    if (['image/gif'].indexOf(mimeType) > -1) {
       validateUpload();
       setUploading(false);
       setProgressCount(0);
-      throw new Error("image");
+      throw new Error('image');
     }
   };
 
   const handleProgress = ({ state, progress }) => {
-    if (state === "uploading") {
+    if (state === 'uploading') {
       setUploading(true);
       setProgressCount(Math.ceil(progress * 100));
     }
-    if (state === "uploaded") {
+    if (state === 'uploaded') {
       setUploading(true);
       setProgressCount(100);
     }
 
-    if (state === "ready") {
+    if (state === 'ready') {
       isLoading(false);
       setUploading(false);
       setProgressCount(0);
@@ -67,7 +67,7 @@ function Uploader({
   };
 
   const handleDone = async (data) => {
-    if (crop === "face") {
+    if (crop === 'face') {
       setIsCropping(true);
       const newUrl = await autoCropFace(data.originalUrl);
       setIsCropping(false);
@@ -97,7 +97,7 @@ function Uploader({
       .openDialog(null, {
         publicKey: process.env.REACT_APP_UPLOADCARE_KEY,
         tabs,
-        crop: crop === "face" ? false : crop,
+        crop: crop === 'face' ? false : crop,
         imagesOnly: true,
         validators: [imagesOnly],
       })
@@ -150,18 +150,18 @@ function Uploader({
 }
 
 Uploader.defaultProps = {
-  label: "Upload Photo",
-  crop: "free",
+  label: 'Upload Photo',
+  crop: 'free',
   icon: <i className="inline-block fa fa-image mr-2" />,
-  tabs: ["file", "url", "camera"],
+  tabs: ['file', 'url', 'camera'],
   validateUpload: () => {},
   onChange: () => {},
   isLoading: () => {},
-  className: "btn primary",
+  className: 'btn primary',
   autoFocus: false,
   useOriginalFormat: true,
   withCustomLoader: false,
-  id: "uploaded_photo",
+  id: 'uploaded_photo',
   disabled: false,
 };
 

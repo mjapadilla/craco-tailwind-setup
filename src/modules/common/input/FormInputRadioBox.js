@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const FormInputRadioBox = React.forwardRef((props, ref) => {
   const { name, label, className, labelClassName, ...rest } = props;
@@ -23,9 +23,9 @@ const FormInputRadioBox = React.forwardRef((props, ref) => {
 });
 
 FormInputRadioBox.defaultProps = {
-  label: "Radio Name",
-  className: "h-4 w-4 text-primary-500 border-gray-300 focus:ring-primary-500",
-  labelClassName: "ml-3 font-base text-gray-500",
+  label: 'Radio Name',
+  className: 'h-4 w-4 text-primary-500 border-gray-300 focus:ring-primary-500',
+  labelClassName: 'ml-3 font-base text-gray-500',
   name: false,
 };
 

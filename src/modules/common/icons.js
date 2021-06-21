@@ -1,12 +1,12 @@
 /* eslint-disable */
-import React from "react";
-import cn from "classnames";
+import React from 'react';
+import cn from 'classnames';
 
 export const IconUser = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     viewBox="0 0 20 20"
     fill="currentColor"
@@ -23,7 +23,7 @@ export const IconAddUser = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     viewBox="0 0 20 20"
     fill="currentColor"
@@ -36,7 +36,7 @@ export const IconDownFill = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 bg-gray-500": !props?.className,
+      'w-6 h-6 bg-gray-500': !props?.className,
     })}
     viewBox="0 0 24 24"
     fill="currentColor"
@@ -50,7 +50,7 @@ export const IconMail = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -69,7 +69,7 @@ export const IconEye = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -94,7 +94,7 @@ export const IconEyeHide = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -113,7 +113,7 @@ export const IconMobile = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -132,7 +132,7 @@ export const IconPencil = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -151,7 +151,7 @@ export const IconPencilAlt = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="currentColor"
     viewBox="0 0 20 20"
@@ -169,7 +169,7 @@ export const IconNavigator = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -188,7 +188,7 @@ export const IconDownload = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 20 20"
@@ -209,7 +209,7 @@ export const IconRefresh = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -228,7 +228,7 @@ export const IconTrash = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -247,7 +247,7 @@ export const IconChevronLeft = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -266,7 +266,7 @@ export const IconCamera = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -322,7 +322,7 @@ export const IconLogOut = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     viewBox="0 0 24 24"
@@ -341,7 +341,7 @@ export const IconClose = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     stroke="currentColor"
@@ -360,7 +360,7 @@ export const IconBriefCase = (props) => (
   <svg
     className={cn({
       [`${props?.className}`]: props?.className,
-      "w-6 h-6 text-gray-500": !props?.className,
+      'w-6 h-6 text-gray-500': !props?.className,
     })}
     fill="none"
     stroke="currentColor"

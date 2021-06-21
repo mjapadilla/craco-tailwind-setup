@@ -1,8 +1,8 @@
-import React from "react";
-import Select from "react-select";
-import BaseDatePicker from "react-datepicker";
-import moment from "moment";
-import PropTypes from "prop-types";
+import React from 'react';
+import Select from 'react-select';
+import BaseDatePicker from 'react-datepicker';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 
 const IconCalendar = () => (
   <svg
@@ -30,18 +30,18 @@ const generateArrayOfYears = (range) => {
 };
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 
 const renderCostomeHeader = ({
@@ -55,7 +55,7 @@ const renderCostomeHeader = ({
 }) => (
   <div className="px-3">
     <span className="w-full text-sm font-semibold ">
-      {moment(date).format("llll")}
+      {moment(date).format('llll')}
     </span>
     <div className="mt-3  flex justify-center">
       <div className="w-1/2 pr-1">
@@ -108,35 +108,35 @@ const renderCostomeHeader = ({
 
 const filterWithHourlyOptions = [
   {
-    value: "hourly",
-    label: "Hourly",
+    value: 'hourly',
+    label: 'Hourly',
   },
   {
-    value: "daily",
-    label: "Daily",
+    value: 'daily',
+    label: 'Daily',
   },
   {
-    value: "monthly",
-    label: "Monthly",
+    value: 'monthly',
+    label: 'Monthly',
   },
 ];
 
 const filterWithYearlyOptions = [
   {
-    value: "monthly",
-    label: "Yearly",
+    value: 'monthly',
+    label: 'Yearly',
   },
   {
-    value: "daily",
-    label: "Monhtly",
+    value: 'daily',
+    label: 'Monhtly',
   },
   {
-    value: "hourly",
-    label: "Daily",
+    value: 'hourly',
+    label: 'Daily',
   },
 ];
 
-const defaultFormat = "YYYY-MM-DD";
+const defaultFormat = 'YYYY-MM-DD';
 
 function DateTypeFilter({ onChange, defualtValue, withHourly }) {
   const [filter, setFilter] = React.useState(defualtValue);
@@ -147,24 +147,24 @@ function DateTypeFilter({ onChange, defualtValue, withHourly }) {
 
     const args = {
       hourly: {
-        start_date: currentStartDate ? moment().format(defaultFormat) : "",
-        end_date: currentEndDate ? moment().format(defaultFormat) : "",
+        start_date: currentStartDate ? moment().format(defaultFormat) : '',
+        end_date: currentEndDate ? moment().format(defaultFormat) : '',
       },
       daily: {
         start_date: currentStartDate
-          ? moment().startOf("month").format(defaultFormat)
-          : "",
+          ? moment().startOf('month').format(defaultFormat)
+          : '',
         end_date: currentEndDate
-          ? moment().endOf("month").format(defaultFormat)
-          : "",
+          ? moment().endOf('month').format(defaultFormat)
+          : '',
       },
       monthly: {
         start_date: currentStartDate
-          ? moment().startOf("year").format(defaultFormat)
-          : "",
+          ? moment().startOf('year').format(defaultFormat)
+          : '',
         end_date: currentEndDate
-          ? moment().endOf("year").format(defaultFormat)
-          : "",
+          ? moment().endOf('year').format(defaultFormat)
+          : '',
       },
     };
 
@@ -189,19 +189,19 @@ function DateTypeFilter({ onChange, defualtValue, withHourly }) {
         daily: {
           ...filter,
           start_date: moment(e, defaultFormat)
-            .startOf("month")
+            .startOf('month')
             .format(defaultFormat),
           end_date: moment(e, defaultFormat)
-            .endOf("month")
+            .endOf('month')
             .format(defaultFormat),
         },
         monthly: {
           ...filter,
           start_date: moment(e, defaultFormat)
-            .startOf("year")
+            .startOf('year')
             .format(defaultFormat),
           end_date: moment(e, defaultFormat)
-            .endOf("year")
+            .endOf('year')
             .format(defaultFormat),
         },
       };
@@ -216,7 +216,7 @@ function DateTypeFilter({ onChange, defualtValue, withHourly }) {
             className="focus:ring-primary-500 focus:ring-2 block w-full border border-gray-300 sm:text-sm rounded-md px-3 py-2"
             popperPlacement="bottom-end"
             onChange={handleOnChangeDate}
-            selected={filter?.start_date ? new Date(filter?.start_date) : ""}
+            selected={filter?.start_date ? new Date(filter?.start_date) : ''}
             dateFormat="MMMM d, yyyy"
             placeholderText="MMM DD, YYYY"
             renderCustomHeader={renderCostomeHeader}
@@ -232,7 +232,7 @@ function DateTypeFilter({ onChange, defualtValue, withHourly }) {
             className="focus:ring-primary-500 focus:ring-2 block w-full border border-gray-300 sm:text-sm rounded-md px-3 py-2"
             popperPlacement="bottom-end"
             onChange={handleOnChangeDate}
-            selected={filter?.start_date ? new Date(filter?.start_date) : ""}
+            selected={filter?.start_date ? new Date(filter?.start_date) : ''}
             dateFormat="MMMM yyyy"
             placeholderText="MMMM YYYY"
             showMonthYearPicker
@@ -248,7 +248,7 @@ function DateTypeFilter({ onChange, defualtValue, withHourly }) {
             className="focus:ring-primary-500 focus:ring-2 block w-full border border-gray-300 sm:text-sm rounded-md px-3 py-2"
             popperPlacement="bottom-end"
             onChange={handleOnChangeDate}
-            selected={filter?.start_date ? new Date(filter?.start_date) : ""}
+            selected={filter?.start_date ? new Date(filter?.start_date) : ''}
             dateFormat="yyyy"
             placeholderText="YYYY"
             showYearPicker

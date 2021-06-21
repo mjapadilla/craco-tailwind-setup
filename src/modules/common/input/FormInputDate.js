@@ -1,11 +1,11 @@
-import React from "react";
-import DatePicker from "react-datepicker";
-import PropTypes from "prop-types";
-import _ from "lodash";
-import InputMask from "react-input-mask";
-import moment from "moment";
-import { toastWarning } from "modules/common/toast";
-import { jsUcOnlyFirst } from "../helper";
+import React from 'react';
+import DatePicker from 'react-datepicker';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
+import InputMask from 'react-input-mask';
+import moment from 'moment';
+import { toastWarning } from 'modules/common/toast';
+import { jsUcOnlyFirst } from '../helper';
 
 const IconCalendar = (props) => (
   <svg
@@ -36,39 +36,39 @@ const generateArrayOfYears = (range) => {
 };
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 
 const renderDateFormat = (withTime) => {
   if (withTime) {
-    return "MMM DD, YYYY / hh:mm A";
+    return 'MMM DD, YYYY / hh:mm A';
   }
-  return "MMM DD, YYYY";
+  return 'MMM DD, YYYY';
 };
 
-const formatDate = (date, def = "", format = "MMM DD, YYYY") => {
+const formatDate = (date, def = '', format = 'MMM DD, YYYY') => {
   try {
     const endDate = moment(date, format).format(format);
 
-    if (_.isEmpty(date) && date === "") {
-      return endDate === "";
+    if (_.isEmpty(date) && date === '') {
+      return endDate === '';
     }
 
-    if (endDate === "Invalid date") {
-      toastWarning("Entered date is invalid.");
+    if (endDate === 'Invalid date') {
+      toastWarning('Entered date is invalid.');
     }
-    const newDate = endDate === "Invalid date" ? "" : endDate;
+    const newDate = endDate === 'Invalid date' ? '' : endDate;
 
     return newDate;
   } catch (error) {
@@ -119,7 +119,7 @@ function FormInputDate({
   placeholder,
   ...props
 }) {
-  const [selectedDate, setSelectedDate] = React.useState("");
+  const [selectedDate, setSelectedDate] = React.useState('');
   const customRenderRef = React.useRef();
 
   const handleUpdateActual = (e) => {
@@ -128,19 +128,19 @@ function FormInputDate({
       selectedDate,
       renderDateFormat(withTime)
     );
-    const formatedNewVal = moment(newVal, "MMM DD, YYYY hh:mm A").format(
-      "YYYY-MM-DD"
+    const formatedNewVal = moment(newVal, 'MMM DD, YYYY hh:mm A').format(
+      'YYYY-MM-DD'
     );
-    const formatedMaxDate = moment(maxDate).format("YYYY-MM-DD");
-    const formatedMinDate = moment(minDate).format("YYYY-MM-DD");
+    const formatedMaxDate = moment(maxDate).format('YYYY-MM-DD');
+    const formatedMinDate = moment(minDate).format('YYYY-MM-DD');
 
     if (
-      newVal !== "" &&
+      newVal !== '' &&
       formatedNewVal < formatedMaxDate &&
       formatedNewVal >= formatedMinDate
     ) {
       const newDate = withTime
-        ? moment(newVal, "MMM DD, YYYY hh:mm A").format("YYYY-MM-DD hh:mm A")
+        ? moment(newVal, 'MMM DD, YYYY hh:mm A').format('YYYY-MM-DD hh:mm A')
         : formatedNewVal;
 
       if (onGetValue) {
@@ -154,25 +154,25 @@ function FormInputDate({
       return;
     }
 
-    if (newVal !== "" && newVal) {
-      toastWarning("Entered date is out of scope.");
+    if (newVal !== '' && newVal) {
+      toastWarning('Entered date is out of scope.');
     }
 
-    setSelectedDate("");
+    setSelectedDate('');
     if (onGetValue) {
-      onGetValue("");
+      onGetValue('');
       return;
     }
     if (onChange) {
-      onChange((state) => ({ ...state, [name]: "" }));
+      onChange((state) => ({ ...state, [name]: '' }));
     }
   };
 
   const handleChangePicker = (e) => {
     try {
       const newDate = withTime
-        ? moment(e, "MMM DD, YYYY hh:mm A").format("YYYY-MM-DD hh:mm A")
-        : moment(e, "MMM DD, YYYY hh:mm A").format("YYYY-MM-DD");
+        ? moment(e, 'MMM DD, YYYY hh:mm A').format('YYYY-MM-DD hh:mm A')
+        : moment(e, 'MMM DD, YYYY hh:mm A').format('YYYY-MM-DD');
 
       if (onGetValue) {
         onGetValue(newDate);
@@ -195,19 +195,19 @@ function FormInputDate({
     if (placeholderData) {
       return placeholderData;
     }
-    return withTime ? "MMM DD, YYYY / hh:mm a" : "MMM DD, YYYY";
+    return withTime ? 'MMM DD, YYYY / hh:mm a' : 'MMM DD, YYYY';
   };
 
   React.useEffect(() => {
     if (value) {
-      const val = moment(value, "YYYY-MM-DD hh:mm A").format(
-        "MMM DD, YYYY / hh:mm A"
+      const val = moment(value, 'YYYY-MM-DD hh:mm A').format(
+        'MMM DD, YYYY / hh:mm A'
       );
-      const newVal = formatDate(val, "", renderDateFormat(withTime));
+      const newVal = formatDate(val, '', renderDateFormat(withTime));
       setSelectedDate(newVal);
       return;
     }
-    setSelectedDate("");
+    setSelectedDate('');
   }, [value, withTime]);
 
   return (
@@ -216,7 +216,7 @@ function FormInputDate({
         <div className={containerClassName}>
           {label && (
             <label htmlFor={name} className={labelClassName}>
-              {label} {required ? <span className="text-red-500">*</span> : ""}
+              {label} {required ? <span className="text-red-500">*</span> : ''}
             </label>
           )}
           <div className="relative">
@@ -227,18 +227,18 @@ function FormInputDate({
               autoComplete="none"
               className={className}
               disabled={disabled}
-              mask={withTime ? "aaa 99, 9999 / 99:99 aa" : "aaa 99, 9999"}
+              mask={withTime ? 'aaa 99, 9999 / 99:99 aa' : 'aaa 99, 9999'}
               placeholder={renderPlaceHolder(placeholder)}
-              value={jsUcOnlyFirst(selectedDate || "")}
+              value={jsUcOnlyFirst(selectedDate || '')}
             />
             <div className="absolute top-2 right-2 outline-none">
               <DatePicker
-                id={_.get(props, "id") || name}
+                id={_.get(props, 'id') || name}
                 autoComplete="none"
                 disabled={disabled}
                 maxDate={maxDate}
                 timeIntervals={15}
-                selected={value ? new Date(value) : ""}
+                selected={value ? new Date(value) : ''}
                 onChange={handleChangePicker}
                 openToDate={
                   !_.isEmpty(value) ? new Date(selectedDate) : openToDate
@@ -259,7 +259,7 @@ function FormInputDate({
                 }) => (
                   <div className="px-3">
                     <span className="w-full text-sm font-semibold ">
-                      {moment(date, "YYYY-MM-DD").format("llll")}
+                      {moment(date, 'YYYY-MM-DD').format('llll')}
                     </span>
                     <div className="mt-3  flex justify-center">
                       <div className="w-1/2 pr-1">
@@ -274,8 +274,8 @@ function FormInputDate({
                         <select
                           value={date.getFullYear()}
                           className="w-5/6"
-                          onChange={(e) => changeYear(_.get(e, "target.value"))}
-                          onBlur={(e) => changeYear(_.get(e, "target.value"))}
+                          onChange={(e) => changeYear(_.get(e, 'target.value'))}
+                          onBlur={(e) => changeYear(_.get(e, 'target.value'))}
                         >
                           {generateArrayOfYears(range).map((option) => (
                             <option key={option} value={option}>
@@ -290,12 +290,12 @@ function FormInputDate({
                           className="w-5/6"
                           onChange={(e) =>
                             changeMonth(
-                              months.indexOf(_.get(e, "target.value"))
+                              months.indexOf(_.get(e, 'target.value'))
                             )
                           }
                           onBlur={(e) =>
                             changeMonth(
-                              months.indexOf(_.get(e, "target.value"))
+                              months.indexOf(_.get(e, 'target.value'))
                             )
                           }
                         >
@@ -324,7 +324,7 @@ function FormInputDate({
         </div>
         {error && (
           <small className="flex text-xxs text-red-500 -mt-1 absolute -bottom-2 right-2 bg-red-50 px-1 rounded">
-            {error?.message ?? ""}
+            {error?.message ?? ''}
           </small>
         )}
       </div>
@@ -336,15 +336,15 @@ FormInputDate.defaultProps = {
   disabled: false,
   withTime: false,
   required: false,
-  maxDate: new Date("3000-01-01"),
-  minDate: new Date("1900-01-01"),
+  maxDate: new Date('3000-01-01'),
+  minDate: new Date('1900-01-01'),
   openToDate: new Date(),
-  label: "Date",
-  value: "",
-  containerClassName: "mb-2 relative",
-  labelClassName: "block text-xs font-medium text-gray-500",
+  label: 'Date',
+  value: '',
+  containerClassName: 'mb-2 relative',
+  labelClassName: 'block text-xs font-medium text-gray-500',
   className:
-    "mt-1 focus:ring-primary-500 text-gray-500 focus:outline-none focus:ring-2 block w-full border border-gray-400 sm:text-sm rounded-md px-3 py-2",
+    'mt-1 focus:ring-primary-500 text-gray-500 focus:outline-none focus:ring-2 block w-full border border-gray-400 sm:text-sm rounded-md px-3 py-2',
   onGetValue: false,
   onChange: false,
   error: false,

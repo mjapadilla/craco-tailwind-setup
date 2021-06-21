@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function WipContainer({ label }) {
   return (
@@ -30,7 +30,7 @@ function WipContainer({ label }) {
   );
 }
 WipContainer.defaultProps = {
-  label: "Work on progress.",
+  label: 'Work on progress.',
 };
 
 WipContainer.propTypes = {

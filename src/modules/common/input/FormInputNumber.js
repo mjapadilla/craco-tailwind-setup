@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import _ from "lodash";
-import { IconPencil } from "../icons";
+import React from 'react';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
+import { IconPencil } from '../icons';
 
 const FormInputNumber = React.forwardRef((props, ref) => {
   const {
@@ -19,7 +19,7 @@ const FormInputNumber = React.forwardRef((props, ref) => {
 
   const handleOnFocus = (e) => {
     e.preventDefault();
-    document.getElementById(_.get(rest, "id") || name).focus();
+    document.getElementById(_.get(rest, 'id') || name).focus();
   };
 
   return (
@@ -33,14 +33,14 @@ const FormInputNumber = React.forwardRef((props, ref) => {
           {label && (
             <label
               className={labelClassName}
-              htmlFor={_.get(rest, "id") || name}
+              htmlFor={_.get(rest, 'id') || name}
             >
-              {label} {required ? <span className="text-red-500">*</span> : ""}
+              {label} {required ? <span className="text-red-500">*</span> : ''}
             </label>
           )}
           <div className="relative">
             <input
-              id={_.get(rest, "id") || name}
+              id={_.get(rest, 'id') || name}
               type="text"
               autoComplete="none"
               placeholder={label}
@@ -63,7 +63,7 @@ const FormInputNumber = React.forwardRef((props, ref) => {
         </div>
         {error && (
           <small className="flex text-xs absolute -bottom-2 right-2 px-2 bg-red-50 rounded text-red-500">
-            {error?.message ?? ""}
+            {error?.message ?? ''}
           </small>
         )}
       </div>
@@ -72,13 +72,13 @@ const FormInputNumber = React.forwardRef((props, ref) => {
 });
 
 FormInputNumber.defaultProps = {
-  label: "Name",
-  containerClassName: "mb-2 relative",
-  labelClassName: "block text-xs font-medium text-gray-500",
+  label: 'Name',
+  containerClassName: 'mb-2 relative',
+  labelClassName: 'block text-xs font-medium text-gray-500',
   className:
-    "mt-1 focus:ring-primary-500 focus:ring-2 block w-full text-gray-500 border border-gray-400 sm:text-sm rounded-md pl-3 pr-12 py-2",
+    'mt-1 focus:ring-primary-500 focus:ring-2 block w-full text-gray-500 border border-gray-400 sm:text-sm rounded-md pl-3 pr-12 py-2',
   required: false,
-  type: "text",
+  type: 'text',
   error: false,
   withIcon: <IconPencil />,
 };

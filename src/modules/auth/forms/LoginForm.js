@@ -1,16 +1,16 @@
-import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Link, useHistory } from "react-router-dom";
-import { FormInput, FormInputMask } from "modules/common/input";
-import Button from "modules/common/input/Button";
-import { replaceAllString } from "modules/common/helper";
-import { schema } from "../constants";
-import { useLogin } from "../hooks";
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Link, useHistory } from 'react-router-dom';
+import { FormInput, FormInputMask } from 'modules/common/input';
+import Button from 'modules/common/input/Button';
+import { replaceAllString } from 'modules/common/helper';
+import { schema } from '../constants';
+import { useLogin } from '../hooks';
 
 const INIT_FORM = {
-  mobile_number: "",
-  password: "",
+  mobile_number: '',
+  password: '',
 };
 
 function LoginForm() {
@@ -24,20 +24,20 @@ function LoginForm() {
   } = useForm({
     defaultValues: INIT_FORM,
     resolver: yupResolver(schema),
-    reValidateMode: "onSubmit",
+    reValidateMode: 'onSubmit',
   });
 
   const handleOnSubmit = (form) => {
     const args = {
       ...form,
-      mobile_number: replaceAllString(form?.mobile_number, "-"),
+      mobile_number: replaceAllString(form?.mobile_number, '-'),
     };
     login(args, ({ is_first_login }) => {
       if (is_first_login) {
-        history.push("/loading");
+        history.push('/loading');
         return;
       }
-      history.push("/");
+      history.push('/');
     });
   };
 
@@ -105,7 +105,7 @@ function LoginForm() {
             label="Login"
           />
           <p className="font-light text-sm text-primary-500">
-            Don’t have account yet?{" "}
+            Don’t have account yet?{' '}
             <Link
               to="/register"
               className="font-semibold text-sm ml-auto hover:underline"

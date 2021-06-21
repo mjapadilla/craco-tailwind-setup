@@ -1,6 +1,6 @@
-import React from "react";
-import get from "lodash/get";
-import PropTypes from "prop-types";
+import React from 'react';
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -33,11 +33,11 @@ class ErrorBoundary extends React.Component {
               >
                 <path fill="none" d="M0 0h24v24H0z" />
                 <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm0-8v6h2V7h-2z" />
-              </svg>{" "}
+              </svg>{' '}
               Unable to load page.
             </div>
             <span className="text-xs text-gray-500 tracking-wide font-semibold">
-              <a href={get(window, "location.pathname")}>Try again</a>
+              <a href={get(window, 'location.pathname')}>Try again</a>
             </span>
           </div>
         </div>

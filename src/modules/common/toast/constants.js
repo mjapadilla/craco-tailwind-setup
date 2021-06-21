@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const renderIconType = {
   success: (
@@ -33,35 +33,35 @@ export const renderIconType = {
 
 export const renderColor = {
   // background-color
-  "bg-success": "bg-green-200",
-  "bg-error": "bg-red-200",
-  "bg-warning": "bg-yellow-300",
-  "bg-info": "bg-blue-200",
+  'bg-success': 'bg-green-200',
+  'bg-error': 'bg-red-200',
+  'bg-warning': 'bg-yellow-300',
+  'bg-info': 'bg-blue-200',
   // text
-  "text-success": "text-green-700",
-  "text-error": "text-red-700",
-  "text-warning": "text-yellow-700",
-  "text-info": "text-blue-700",
+  'text-success': 'text-green-700',
+  'text-error': 'text-red-700',
+  'text-warning': 'text-yellow-700',
+  'text-info': 'text-blue-700',
   // icon
-  "icon-success": "text-green-600",
-  "icon-error": "text-red-500",
-  "icon-warning": "text-yellow-700",
-  "icon-info": "text-blue-500",
+  'icon-success': 'text-green-600',
+  'icon-error': 'text-red-500',
+  'icon-warning': 'text-yellow-700',
+  'icon-info': 'text-blue-500',
   // title
-  "title-success": "text-green-800",
-  "title-error": "text-red-800",
-  "title-warning": "text-yellow-800",
-  "title-info": "text-blue-800",
+  'title-success': 'text-green-800',
+  'title-error': 'text-red-800',
+  'title-warning': 'text-yellow-800',
+  'title-info': 'text-blue-800',
   // loader
-  "loader-success": "bg-green-600",
-  "loader-error": "bg-red-500",
-  "loader-warning": "bg-yellow-700",
-  "loader-info": "bg-blue-500",
+  'loader-success': 'bg-green-600',
+  'loader-error': 'bg-red-500',
+  'loader-warning': 'bg-yellow-700',
+  'loader-info': 'bg-blue-500',
 };
 
 export const renderTitle = {
-  success: "Succcess!",
-  error: "Error!",
-  warning: "Warning!",
-  info: "Reminder!",
+  success: 'Succcess!',
+  error: 'Error!',
+  warning: 'Warning!',
+  info: 'Reminder!',
 };

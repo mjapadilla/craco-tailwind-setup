@@ -1,16 +1,16 @@
-import React from "react";
-import Cookie from "js-cookie";
-import moment from "moment";
-import axios from "axios";
-import { isEmpty, forOwn, get, omitBy, isNil, debounce, assign } from "lodash";
-import { toastError, toastWarning } from "./toast";
+import React from 'react';
+import Cookie from 'js-cookie';
+import moment from 'moment';
+import axios from 'axios';
+import { isEmpty, forOwn, get, omitBy, isNil, debounce, assign } from 'lodash';
+import { toastError, toastWarning } from './toast';
 
 export const objectToUpperCase = (params) => {
   const newObjt = {};
   Object.keys(params).map((item) => {
-    const x = "";
+    const x = '';
     newObjt[item] =
-      params[item] && typeof params[item] === "string"
+      params[item] && typeof params[item] === 'string'
         ? `${params[item].toUpperCase()}`
         : params[item];
     return x;
@@ -19,24 +19,24 @@ export const objectToUpperCase = (params) => {
 };
 
 export const stringToUpperCase = (string) => {
-  if (!isNil(string) && typeof string === "string") {
+  if (!isNil(string) && typeof string === 'string') {
     return string.toUpperCase();
   }
-  return "";
+  return '';
 };
 
 export const jsUcFirst = (string) =>
-  (string || "")
+  (string || '')
     .toLowerCase()
-    .replace(new RegExp("(?:\\b|_)([a-z])", "g"), (e) => e.toUpperCase());
+    .replace(new RegExp('(?:\\b|_)([a-z])', 'g'), (e) => e.toUpperCase());
 
 export const jsUcOnlyFirst = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
 
 export const parseNumber = (str, default_value = false) => {
-  const v = parseFloat(`${str}`.replace(/,/g, ""));
+  const v = parseFloat(`${str}`.replace(/,/g, ''));
   // eslint-disable-next-line no-restricted-globals
-  if (isNaN(v)) return typeof default_value !== "boolean" ? default_value : str;
+  if (isNaN(v)) return typeof default_value !== 'boolean' ? default_value : str;
   return v;
 };
 
@@ -54,10 +54,10 @@ export const formatNumber = (v, decimal = 2) => {
   }
 };
 
-export const formatDate = (date, format = "mm/dd/yyyy", defaultValue = "-") => {
+export const formatDate = (date, format = 'mm/dd/yyyy', defaultValue = '-') => {
   if (!date) return defaultValue;
   const d = new Date(date);
-  if (d.toString() === "Invalid Date") return defaultValue;
+  if (d.toString() === 'Invalid Date') return defaultValue;
   return moment(d).format(format);
 };
 
@@ -69,11 +69,11 @@ export const transformIncluded = (x, included) => {
       ? v.data.map(
           (z) =>
             included.find(
-              (y) => y.type === get(z, "type") && y.id === get(z, "id")
+              (y) => y.type === get(z, 'type') && y.id === get(z, 'id')
             ) || {}
         )
       : included.find(
-          (y) => y.type === get(v, "data.type") && y.id === get(v, "data.id")
+          (y) => y.type === get(v, 'data.type') && y.id === get(v, 'data.id')
         ) || {};
   });
   const { links, relationships, type, ...rest } = x;
@@ -105,14 +105,14 @@ export const transformIncludedDeep = (x, included) => {
       ? v.data.map((z) =>
           transformIncludedDeep(
             included.find(
-              (y) => y.type === get(z, "type") && y.id === get(z, "id")
+              (y) => y.type === get(z, 'type') && y.id === get(z, 'id')
             ) || {},
             included
           )
         )
       : transformIncludedDeep(
           included.find(
-            (y) => y.type === get(v, "data.type") && y.id === get(v, "data.id")
+            (y) => y.type === get(v, 'data.type') && y.id === get(v, 'data.id')
           ) || {},
           included
         );
@@ -122,7 +122,7 @@ export const transformIncludedDeep = (x, included) => {
 };
 
 export const removeNull = (obj) =>
-  omitBy(obj, (x) => typeof x === "undefined" || x === null);
+  omitBy(obj, (x) => typeof x === 'undefined' || x === null);
 
 export const removeEmpty = (obj) => omitBy(obj, (x) => isEmpty(`${x}`));
 
@@ -131,9 +131,9 @@ export const getEllipsis = (str, count = 120) =>
 
 export const generateArrDate = (date_from, date_to, type) => {
   const renderType = {
-    day: "ll",
-    month: "MMM, YYYY",
-    year: "YYYY",
+    day: 'll',
+    month: 'MMM, YYYY',
+    year: 'YYYY',
   };
 
   const dates = [];
@@ -145,17 +145,17 @@ export const generateArrDate = (date_from, date_to, type) => {
 };
 
 export const getFirstMessage = (data) => {
-  if (!data) return "";
-  let firstMessage = "";
+  if (!data) return '';
+  let firstMessage = '';
   let x = 0;
 
   Object.keys(data).map((i) => {
     if (x === 0) {
       firstMessage =
-        get(data[i], "details") ||
-        get(data[i], "detail") ||
-        get(data[i], "message") ||
-        get(data[i], "0");
+        get(data[i], 'details') ||
+        get(data[i], 'detail') ||
+        get(data[i], 'message') ||
+        get(data[i], '0');
     }
     x += 1;
     return x;
@@ -193,14 +193,14 @@ export const usePersistState = (key, state, isClearable = true) => {
 export const queryParams = (params) =>
   Object.keys(params)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
-    .join("&");
+    .join('&');
 
 export const downloadGet = ({ url, filename, params, callBack = () => {} }) => {
   try {
-    const token = Cookie.get("_token");
+    const token = Cookie.get('_token');
 
     fetch(`${process.env.REACT_APP_END_POINT}${url}?${queryParams(params)}`, {
-      method: "GET",
+      method: 'GET',
       headers: new Headers({
         Authorization: `Bearer ${token}`,
       }),
@@ -208,9 +208,9 @@ export const downloadGet = ({ url, filename, params, callBack = () => {} }) => {
       .then((response) => response.blob())
       .then((blob) => {
         const temp_url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
+        const a = document.createElement('a');
         a.href = temp_url;
-        a.download = `${filename}.csv` || "filename.csv";
+        a.download = `${filename}.csv` || 'filename.csv';
         document.body.appendChild(a);
         a.click();
         a.remove();
@@ -218,10 +218,10 @@ export const downloadGet = ({ url, filename, params, callBack = () => {} }) => {
       })
       .catch((err) => {
         console.log(err); // eslint-disable-line
-        toastError("Unable to process request!");
+        toastError('Unable to process request!');
       });
   } catch (err) {
-    toastError("Unable to process request!");
+    toastError('Unable to process request!');
   }
 };
 
@@ -264,15 +264,15 @@ const padBounds = (bounds, padding = 0.2) => {
 export const autoCropFace = async (ucare_url) => {
   try {
     const res = await axios.get(`${ucare_url}detect_faces/`);
-    const face = get(res, "data.faces.0") || [];
+    const face = get(res, 'data.faces.0') || [];
     if (isEmpty(face)) {
-      toastWarning("Unable to crop automatically. No face detected.");
+      toastWarning('Unable to crop automatically. No face detected.');
       return ucare_url;
     }
     const { x, y, w, h } = padBounds(face);
     return `${ucare_url}-/crop/${w}x${h}/${x},${y}/-/preview/`;
   } catch (err) {
-    toastWarning("Unable to crop automatically. Crop error!");
+    toastWarning('Unable to crop automatically. Crop error!');
     return ucare_url;
   }
 };
@@ -283,13 +283,13 @@ export const convertArrayToObject = (array, key) =>
     return acc;
   }, {});
 
-export const replaceAllString = (str, target, replacement = "") => {
-  if (!str) return "";
+export const replaceAllString = (str, target, replacement = '') => {
+  if (!str) return '';
   const x = str.replaceAll(target, replacement);
   return x;
 };
 
-export const insertUpdateObjectToList = (list = [], data = {}, id = "id") => {
+export const insertUpdateObjectToList = (list = [], data = {}, id = 'id') => {
   const newList = list.map((item) => {
     if (`${data[id]}` !== `${item[id]}`) return item;
     return assign({}, item, data);
@@ -301,15 +301,15 @@ export const insertUpdateObjectToList = (list = [], data = {}, id = "id") => {
 export const insertNewObjectToList = (
   list = [],
   data = {},
-  position = "end"
+  position = 'end'
 ) => {
-  if (position === "start") {
+  if (position === 'start') {
     return [data].concat(list);
   }
   return list.concat([data]);
 };
 
-export const removeObjectToList = (list = [], id, target_id = "id") => {
+export const removeObjectToList = (list = [], id, target_id = 'id') => {
   let newList = [];
   newList = list.filter((item) => `${item[target_id]}` !== `${id}`);
   return newList;
@@ -317,8 +317,8 @@ export const removeObjectToList = (list = [], id, target_id = "id") => {
 
 export const formatedSelectOption = (
   list = [],
-  value = "id",
-  label = "name",
+  value = 'id',
+  label = 'name',
   isLabelUpperCase = true,
   isValueUpperCase = false
 ) => {
@@ -340,7 +340,7 @@ export const formatedSelectOption = (
 export const groupAndSumArray = (list, groupKeys, sumKeys) =>
   Object.values(
     list.reduce((acc, curr) => {
-      const group = groupKeys.map((k) => curr[k]).join("-");
+      const group = groupKeys.map((k) => curr[k]).join('-');
       acc[group] = {
         ...{
           ...(acc[group] ||
@@ -363,7 +363,7 @@ export const objectToString = (obj) => {
   try {
     return JSON.stringify(obj);
   } catch (error) {
-    return "";
+    return '';
   }
 };
 
@@ -371,6 +371,6 @@ export const stringToObject = (str) => {
   try {
     return JSON.parse(str);
   } catch (error) {
-    return "";
+    return '';
   }
 };

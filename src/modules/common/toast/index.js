@@ -1,9 +1,9 @@
-import React from "react";
-import { render } from "react-dom";
-import { renderIconType, renderColor, renderTitle } from "./constants";
-import Loader from "./Loader";
+import React from 'react';
+import { render } from 'react-dom';
+import { renderIconType, renderColor, renderTitle } from './constants';
+import Loader from './Loader';
 
-const toastUniqueID = "geek-toast-marker";
+const toastUniqueID = 'geek-toast-marker';
 
 const ToastMarker = (props) => <div id={toastUniqueID} props={props} />;
 
@@ -16,9 +16,9 @@ const toast = async (content, options = {}) => {
   const opt = {
     timeout: 4000,
     title: false,
-    divId: "toast-override",
-    position: "top-right",
-    type: "success",
+    divId: 'toast-override',
+    position: 'top-right',
+    type: 'success',
     ...options,
     content,
   };
@@ -28,7 +28,7 @@ const toast = async (content, options = {}) => {
     document.getElementById(opt.divId) ||
     document.getElementById(toastUniqueID);
   if (!rootElement) {
-    alert("Alert Marker not found!"); // eslint-disable-line
+    alert('Alert Marker not found!'); // eslint-disable-line
     return;
   }
   const close = async () => {
@@ -36,8 +36,8 @@ const toast = async (content, options = {}) => {
       try {
         await wait(700);
         alertRef.className = alertRef.className.replace(
-          "toast-entrance",
-          "toast-exit"
+          'toast-entrance',
+          'toast-exit'
         );
         await wait(700);
       } catch (error) {
@@ -45,13 +45,13 @@ const toast = async (content, options = {}) => {
       }
     }
 
-    document.body.className = "";
+    document.body.className = '';
     render(<ToastMarker />, rootElement);
   };
   close();
   await wait(5);
   const renderContent = () => {
-    if (typeof opt.content === "function") return opt.content(close);
+    if (typeof opt.content === 'function') return opt.content(close);
     return opt.content;
   };
 
@@ -78,7 +78,7 @@ const toast = async (content, options = {}) => {
             >
               {opt?.title ? opt?.title : renderTitle[opt?.type]}
             </h3>
-            <div className={`text-sm${opt?.title ? " mt-2 " : ""} `}>
+            <div className={`text-sm${opt?.title ? ' mt-2 ' : ''} `}>
               <p>{renderContent()}</p>
             </div>
           </div>
@@ -140,23 +140,23 @@ export default ToastMarker;
 export const toastSuccess = (content, options) =>
   toast(content, {
     ...options,
-    type: "success",
+    type: 'success',
   });
 
 export const toastWarning = (content, options) =>
   toast(content, {
     ...options,
-    type: "warning",
+    type: 'warning',
   });
 
 export const toastInfo = (content, options) =>
   toast(content, {
     ...options,
-    type: "info",
+    type: 'info',
   });
 
 export const toastError = (content, options) =>
   toast(content, {
     ...options,
-    type: "error",
+    type: 'error',
   });

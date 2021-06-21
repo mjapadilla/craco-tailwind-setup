@@ -1,18 +1,18 @@
-import { req } from "react-reqq-lite";
-import Cookie from "js-cookie";
-import * as c from "./constants";
+import { req } from 'react-reqq-lite';
+import Cookie from 'js-cookie';
+import * as c from './constants';
 
 export const login = (payload, callback = () => {}) => {
   req.post({
     key: c.LOGIN,
-    url: "/api/auth",
+    url: '/api/auth',
     payload,
     onSuccess: ({ response: { data } }) => {
       const profile = {
         ...data?.user,
         ...data?.user?.profile,
       };
-      Cookie.set("_token", data?.token);
+      Cookie.set('_token', data?.token);
       req.set(c.AUTHENTICATION, {
         isAuthenticated: true,
       });
@@ -22,8 +22,8 @@ export const login = (payload, callback = () => {}) => {
 };
 
 export const logout = () => {
-  Cookie.remove("_token");
-  Cookie.remove("_profile");
+  Cookie.remove('_token');
+  Cookie.remove('_profile');
   req.reset();
   req.set(c.AUTHENTICATION, {
     isAuthenticated: false,

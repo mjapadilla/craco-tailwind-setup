@@ -1,47 +1,47 @@
-import React from "react";
-import PropTypes from "prop-types";
-import cn from "classnames";
-import Select from "react-select";
-import * as hooks from "./hooks";
+import React from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+import Select from 'react-select';
+import * as hooks from './hooks';
 
 const style = {
-  containerClassName: "mb-2 relative",
-  labelClassName: "block text-xs font-medium text-gray-500 mb-1",
+  containerClassName: 'mb-2 relative',
+  labelClassName: 'block text-xs font-medium text-gray-500 mb-1',
   className:
-    "focus:ring-primary-500 focus:ring-2 block w-full text-gray-500 border border-gray-400 sm:text-sm rounded-md px-3 py-2 disabled:bg-gray-200",
+    'focus:ring-primary-500 focus:ring-2 block w-full text-gray-500 border border-gray-400 sm:text-sm rounded-md px-3 py-2 disabled:bg-gray-200',
 };
 
 const INIT_FORM = {
-  region: "",
-  province: "",
-  municipality: "",
-  barangay: "",
-  zip_code: "",
-  full_address: "",
+  region: '',
+  province: '',
+  municipality: '',
+  barangay: '',
+  zip_code: '',
+  full_address: '',
 };
 
 const resetForm = {
   region: {
-    province: "",
-    municipality: "",
-    barangay: "",
-    full_address: "",
-    zip_code: "",
+    province: '',
+    municipality: '',
+    barangay: '',
+    full_address: '',
+    zip_code: '',
   },
   province: {
-    municipality: "",
-    barangay: "",
-    full_address: "",
-    zip_code: "",
+    municipality: '',
+    barangay: '',
+    full_address: '',
+    zip_code: '',
   },
   municipality: {
-    barangay: "",
-    full_address: "",
-    zip_code: "",
+    barangay: '',
+    full_address: '',
+    zip_code: '',
   },
   barangay: {
-    full_address: "",
-    zip_code: "",
+    full_address: '',
+    zip_code: '',
   },
 };
 
@@ -102,13 +102,13 @@ function AddressPicker({
 
   return (
     <div
-      className={cn("grid", {
-        "grid-cols-1": isOneLine,
-        "grid-cols-2 gap-3": !isOneLine,
+      className={cn('grid', {
+        'grid-cols-1': isOneLine,
+        'grid-cols-2 gap-3': !isOneLine,
       })}
     >
       {/* Region */}
-      <div className={cn("col-span-1")}>
+      <div className={cn('col-span-1')}>
         <div className={style.containerClassName}>
           <label className={style.labelClassName} htmlFor="region">
             Region {required && <span className="text-red-500">*</span>}
@@ -122,20 +122,20 @@ function AddressPicker({
               id="region"
               isLoading={isRegionApiLoading}
               isDisabled={!disabledRegion ? isRegionApiLoading : disabledRegion}
-              value={form?.region ?? ""}
-              onChange={handleOnChangeSelect("region")}
+              value={form?.region ?? ''}
+              onChange={handleOnChangeSelect('region')}
               openMenuOnFocus
             />
             {errors?.region && (
               <small className="flex text-xs absolute -bottom-2 right-2 px-2 bg-red-50 rounded text-red-500">
-                {errors?.region.message ?? ""}
+                {errors?.region.message ?? ''}
               </small>
             )}
           </div>
         </div>
       </div>
       {/* Province */}
-      <div className={cn("col-span-1")}>
+      <div className={cn('col-span-1')}>
         <div className={style.containerClassName}>
           <label className={style.labelClassName} htmlFor="province">
             Province {required && <span className="text-red-500">*</span>}
@@ -149,20 +149,20 @@ function AddressPicker({
               options={provinceList}
               isLoading={isProvinceApiLoading || isRegionApiLoading}
               isDisabled={!regionList.length || !form?.region}
-              value={form?.province ?? ""}
-              onChange={handleOnChangeSelect("province")}
+              value={form?.province ?? ''}
+              onChange={handleOnChangeSelect('province')}
               openMenuOnFocus
             />
             {errors?.province && (
               <small className="flex text-xs absolute -bottom-2 right-2 px-2 bg-red-50 rounded text-red-500">
-                {errors?.province.message ?? ""}
+                {errors?.province.message ?? ''}
               </small>
             )}
           </div>
         </div>
       </div>
       {/* Municipality */}
-      <div className={cn("col-span-1")}>
+      <div className={cn('col-span-1')}>
         <div className={style.containerClassName}>
           <label className={style.labelClassName} htmlFor="municipality">
             Municipality {required && <span className="text-red-500">*</span>}
@@ -180,13 +180,13 @@ function AddressPicker({
                 isRegionApiLoading
               }
               isDisabled={!provinceList.length || !form?.province}
-              value={form?.municipality ?? ""}
-              onChange={handleOnChangeSelect("municipality")}
+              value={form?.municipality ?? ''}
+              onChange={handleOnChangeSelect('municipality')}
               openMenuOnFocus
             />
             {errors?.municipality && (
               <small className="flex text-xs absolute -bottom-2 right-2 px-2 bg-red-50 rounded text-red-500">
-                {errors?.municipality.message ?? ""}
+                {errors?.municipality.message ?? ''}
               </small>
             )}
           </div>
@@ -194,7 +194,7 @@ function AddressPicker({
       </div>
       {/* Barangay */}
       {isBarangayVisible && (
-        <div className={cn("col-span-1")}>
+        <div className={cn('col-span-1')}>
           <div className={style.containerClassName}>
             <label className={style.labelClassName} htmlFor="barangay">
               Barangay {required && <span className="text-red-500">*</span>}
@@ -213,13 +213,13 @@ function AddressPicker({
                   isRegionApiLoading
                 }
                 isDisabled={!municipalityList.length || !form?.municipality}
-                value={form?.barangay ?? ""}
-                onChange={handleOnChangeSelect("barangay")}
+                value={form?.barangay ?? ''}
+                onChange={handleOnChangeSelect('barangay')}
                 openMenuOnFocus
               />
               {errors?.barangay && (
                 <small className="flex text-xs absolute -bottom-2 right-2 px-2 bg-red-50 rounded text-red-500">
-                  {errors?.barangay.message ?? ""}
+                  {errors?.barangay.message ?? ''}
                 </small>
               )}
             </div>
@@ -228,7 +228,7 @@ function AddressPicker({
       )}
       {/* Zip code */}
       {isZipCodeVible && (
-        <div className={cn("col-span-1")}>
+        <div className={cn('col-span-1')}>
           <div className={style.containerClassName} role="presentation">
             <label className={style.labelClassName} htmlFor="zip_code">
               Zip Code {required && <span className="text-red-500">*</span>}
@@ -242,13 +242,13 @@ function AddressPicker({
                 type="text"
                 maxLength="4"
                 disabled={!barangayList.length || !form?.barangay}
-                value={form?.zip_code ?? ""}
+                value={form?.zip_code ?? ''}
                 className={style.className}
                 onChange={handleOnChange}
               />
               {errors?.zip_code && (
                 <small className="flex text-xs absolute -bottom-2 right-2 px-2 bg-red-50 rounded text-red-500">
-                  {errors?.zip_code.message ?? ""}
+                  {errors?.zip_code.message ?? ''}
                 </small>
               )}
             </div>
@@ -257,10 +257,10 @@ function AddressPicker({
       )}
       {/* Full address */}
       {isFullAddressVisible && (
-        <div className={cn("col-span-1")}>
+        <div className={cn('col-span-1')}>
           <div className={style.containerClassName} role="presentation">
             <label className={style.labelClassName} htmlFor="full_address">
-              House No./Unit Number/Street{" "}
+              House No./Unit Number/Street{' '}
               {required && <span className="text-red-500">*</span>}
             </label>
             <div className="relative">
@@ -273,7 +273,7 @@ function AddressPicker({
                   type="text"
                   rows="3"
                   disabled={!barangayList.length || !form?.barangay}
-                  value={form?.full_address ?? ""}
+                  value={form?.full_address ?? ''}
                   className={style.className}
                   onChange={handleOnChange}
                 />
@@ -285,14 +285,14 @@ function AddressPicker({
                   autoComplete="none"
                   type="text"
                   disabled={!barangayList.length || !form?.barangay}
-                  value={form?.full_address ?? ""}
+                  value={form?.full_address ?? ''}
                   className={style.className}
                   onChange={handleOnChange}
                 />
               )}
               {errors?.full_address && (
                 <small className="flex text-xs absolute -bottom-2 right-2 px-2 bg-red-50 rounded text-red-500">
-                  {errors?.full_address.message ?? ""}
+                  {errors?.full_address.message ?? ''}
                 </small>
               )}
             </div>

@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function PageName({ name }) {
   return (
@@ -10,7 +10,7 @@ function PageName({ name }) {
 }
 
 PageName.defaultProps = {
-  name: "Page Name",
+  name: 'Page Name',
 };
 
 PageName.propTypes = {

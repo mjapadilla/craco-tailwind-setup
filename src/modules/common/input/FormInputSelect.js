@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Select from "react-select";
-import _ from "lodash";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Select from 'react-select';
+import _ from 'lodash';
 
 const FormInputSelect = React.forwardRef((props, ref) => {
   const {
@@ -23,10 +23,10 @@ const FormInputSelect = React.forwardRef((props, ref) => {
   };
 
   const isMultiValue = () => {
-    if (value.length > 0 && _.get(props, "isMulti")) {
-      return value.map((item) => _.get(item, "label", "")).join(" ");
+    if (value.length > 0 && _.get(props, 'isMulti')) {
+      return value.map((item) => _.get(item, 'label', '')).join(' ');
     }
-    return "";
+    return '';
   };
 
   return (
@@ -55,16 +55,16 @@ const FormInputSelect = React.forwardRef((props, ref) => {
               autoComplete="off"
               style={{
                 opacity: 0,
-                width: "100%",
-                height: "10px",
-                position: "absolute",
-                marginTop: "-10px",
+                width: '100%',
+                height: '10px',
+                position: 'absolute',
+                marginTop: '-10px',
                 zIndex: -1,
               }}
               value={
-                _.get(props, "isMulti")
+                _.get(props, 'isMulti')
                   ? isMultiValue()
-                  : `${_.get(value, "value", "")}` || ""
+                  : `${_.get(value, 'value', '')}` || ''
               }
               onChange={() => {}}
               onFocus={handleOnFocus}
@@ -74,7 +74,7 @@ const FormInputSelect = React.forwardRef((props, ref) => {
         </div>
         {error && (
           <small className="flex text-xs absolute -bottom-2 right-2 px-2 bg-red-50 rounded text-red-500">
-            {error?.message ?? ""}
+            {error?.message ?? ''}
           </small>
         )}
       </div>
@@ -83,9 +83,9 @@ const FormInputSelect = React.forwardRef((props, ref) => {
 });
 
 FormInputSelect.defaultProps = {
-  label: "Name",
-  containerClassName: "mb-2 relative",
-  labelClassName: "block text-xs font-medium text-gray-500 mb-1",
+  label: 'Name',
+  containerClassName: 'mb-2 relative',
+  labelClassName: 'block text-xs font-medium text-gray-500 mb-1',
   required: false,
   options: [],
   onGetValue: false,

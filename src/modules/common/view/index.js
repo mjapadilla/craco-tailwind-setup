@@ -1,3 +1,3 @@
-import FormInputView from "./FormInputView";
+import FormInputView from './FormInputView';
 
 export { FormInputView };

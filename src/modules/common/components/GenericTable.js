@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import _ from "lodash";
+import React from 'react';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 const Loading = (
   <svg
@@ -26,25 +26,25 @@ const Loading = (
 
 const renderHeader = (col) => {
   try {
-    return typeof col.label === "function" ? col.label() : _.get(col, "label");
+    return typeof col.label === 'function' ? col.label() : _.get(col, 'label');
   } catch (error) {
-    return "";
+    return '';
   }
 };
 
 const getCell = (item, col, i) => {
   try {
-    return typeof col.key === "function"
+    return typeof col.key === 'function'
       ? col.key(item, i)
       : _.get(item, col.key);
   } catch (err) {
-    return "";
+    return '';
   }
 };
 
 const getStyle = (item, col) => {
   try {
-    return typeof col.style === "function"
+    return typeof col.style === 'function'
       ? _.assign(
           {},
           col.style(item) || {},
@@ -130,18 +130,18 @@ function GenericTable({
       )}
       <div
         className={`overflow-x-auto h-full w-full${
-          containerClassName ? ` ${containerClassName}` : ""
+          containerClassName ? ` ${containerClassName}` : ''
         }`}
       >
         <table
           className={`table-auto h-full w-full${
-            tClassName ? ` ${tClassName}` : ""
+            tClassName ? ` ${tClassName}` : ''
           }`}
         >
           {showHeader && (
             <thead
               className={`flex bg-gray-100 text-gray-500 text-left w-full${
-                theadClassName ? ` ${theadClassName}` : ""
+                theadClassName ? ` ${theadClassName}` : ''
               }`}
             >
               <tr className="flex w-full h-full">
@@ -149,9 +149,9 @@ function GenericTable({
                   <th
                     key={col.label}
                     className={`font-medium px-3 py-2${
-                      _.get(col, "thClassName")
-                        ? ` ${_.get(col, "thClassName")}`
-                        : ""
+                      _.get(col, 'thClassName')
+                        ? ` ${_.get(col, 'thClassName')}`
+                        : ''
                     }`}
                     style={{
                       width: `${100 / format.length}%`,
@@ -167,7 +167,7 @@ function GenericTable({
           <tbody
             id={id}
             className={`flex flex-col items-center overflow-y-auto w-full${
-              tbodyClassName ? ` ${tbodyClassName}` : ""
+              tbodyClassName ? ` ${tbodyClassName}` : ''
             }`}
             style={{
               minHeight,
@@ -183,27 +183,27 @@ function GenericTable({
                 const key = item[selectedKey];
 
                 const getClassName = () =>
-                  isSelected ? ` bg-gray-300 text-white font-bold$` : "";
+                  isSelected ? ` bg-gray-300 text-white font-bold$` : '';
 
-                const current_page = _.get(pagination, "current_page", 0);
-                const per_page = _.get(pagination, "per_page", 0);
+                const current_page = _.get(pagination, 'current_page', 0);
+                const per_page = _.get(pagination, 'per_page', 0);
 
                 return (
                   <tr
                     key={key}
                     className={`flex w-full items-center cursor-pointer${getClassName()}${
-                      trClassName ? ` ${trClassName}` : ""
+                      trClassName ? ` ${trClassName}` : ''
                     }`}
                     onClick={onSelectRow ? handleSelectRow(item) : () => {}}
                   >
                     {format.map((col) => {
                       const { className = false } = col;
-                      if (col.key === "_count") {
+                      if (col.key === '_count') {
                         return (
                           <td
                             key={`${key}-${col.label}`}
                             className={`px-3 py-2${
-                              className ? ` ${className}` : ""
+                              className ? ` ${className}` : ''
                             }`}
                             style={{
                               width: `${100 / format.length}%`,
@@ -220,7 +220,7 @@ function GenericTable({
                         <td
                           key={`${key}-${col.label}`}
                           className={`px-3 py-2${
-                            className ? ` ${className}` : ""
+                            className ? ` ${className}` : ''
                           }`}
                           style={{
                             width: `${100 / format.length}%`,
@@ -245,7 +245,7 @@ function GenericTable({
 GenericTable.defaultProps = {
   data: [],
   format: [],
-  id: "",
+  id: '',
   isLoading: false,
   showHeader: true,
   tClassName: false,
@@ -253,11 +253,11 @@ GenericTable.defaultProps = {
   trClassName: false,
   tbodyClassName: false,
   onSelectRow: false,
-  minHeight: "300px",
-  height: "",
-  noRowsLabel: "There are no records found.",
-  selectedKey: "id",
-  selected: "",
+  minHeight: '300px',
+  height: '',
+  noRowsLabel: 'There are no records found.',
+  selectedKey: 'id',
+  selected: '',
   pagination: false,
   containerClassName: false,
 };

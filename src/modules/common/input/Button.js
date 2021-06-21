@@ -1,17 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = React.forwardRef((props, ref) => {
   const { label, isLoading, ...rest } = props;
   return (
     <button ref={ref} type="button" disabled={isLoading} {...rest}>
-      {isLoading ? "Loading..." : label}
+      {isLoading ? 'Loading...' : label}
     </button>
   );
 });
 
 Button.defaultProps = {
-  label: "Name",
+  label: 'Name',
   isLoading: false,
 };
 

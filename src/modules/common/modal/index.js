@@ -1,47 +1,47 @@
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-reqq-lite";
-import { Router } from "react-router-dom";
-import FocusTrap from "focus-trap-react";
-import store from "setup/store";
-import history from "setup/history";
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-reqq-lite';
+import { Router } from 'react-router-dom';
+import FocusTrap from 'focus-trap-react';
+import store from 'setup/store';
+import history from 'setup/history';
 
 export const closeModal = () => {
-  const root = document.getElementById("modal-root");
+  const root = document.getElementById('modal-root');
   if (!root) {
-    alert("Modal root not found!"); // eslint-disable-line
+    alert('Modal root not found!'); // eslint-disable-line
     return;
   }
 
   setTimeout(() => {
-    document.body.className = "";
+    document.body.className = '';
     render(<div id="modal-root" />, root);
   }, 200);
 };
 
 const renderAlignment = {
-  top: "items-start",
-  middle: "items-center",
-  bottom: "items-end",
+  top: 'items-start',
+  middle: 'items-center',
+  bottom: 'items-end',
 };
 
 export const showModal = (options) => {
   const opt = {
-    title: "",
-    modalSize: "modal-md",
-    titleClassName: "",
-    align: renderAlignment[options?.align ?? "middle"],
-    content: "Modal Body",
+    title: '',
+    modalSize: 'modal-md',
+    titleClassName: '',
+    align: renderAlignment[options?.align ?? 'middle'],
+    content: 'Modal Body',
     noClose: false,
     noEscButton: true,
     titleContainer: true,
     isFocusTrap: true,
     onCloseCallback: false,
-    containerClassName: "bg-white px-4 py-5 sm:p-6 rounded-lg",
+    containerClassName: 'bg-white px-4 py-5 sm:p-6 rounded-lg',
     ...options,
   };
 
-  const root = document.getElementById("modal-root");
+  const root = document.getElementById('modal-root');
 
   let dialogRef;
   const setDialogRef = (ref) => {
@@ -54,12 +54,12 @@ export const showModal = (options) => {
 
   const prevClassName = document.body.className;
   const prevElem = document.activeElement;
-  document.body.className = "overflow-hidden";
+  document.body.className = 'overflow-hidden';
 
   const onClose = () => {
     try {
-      dialogRef.classList.add("exit");
-      setBackgroundRef.classList.add("exit");
+      dialogRef.classList.add('exit');
+      setBackgroundRef.classList.add('exit');
       if (opt.onCloseCallback) {
         opt.onCloseCallback();
       }
@@ -85,7 +85,7 @@ export const showModal = (options) => {
     }
   };
 
-  document.addEventListener("keydown", escFunction, false);
+  document.addEventListener('keydown', escFunction, false);
 
   render(
     <Provider store={store}>
@@ -122,7 +122,7 @@ export const showModal = (options) => {
                 <div className={`${opt.titleClassName}`}>
                   <div
                     className={`flex ${
-                      opt.title ? "justify-between" : "justify-end"
+                      opt.title ? 'justify-between' : 'justify-end'
                     }`}
                   >
                     {opt.title && (
@@ -187,31 +187,31 @@ export const showModal = (options) => {
 export const ModalMarker = () => <div id="modal-root" />;
 
 export const showAlert = (options) => {
-  const root = document.getElementById("alert-root");
+  const root = document.getElementById('alert-root');
   if (!root) {
-    alert("Alert root not found!"); // eslint-disable-line
+    alert('Alert root not found!'); // eslint-disable-line
     return;
   }
 
   const opt = {
-    title: "",
+    title: '',
     isLoading: false,
     isFocusTrap: false,
-    modalSize: "modal-sm",
-    titleClassName: "",
-    align: "justify-center flex items-center",
-    content: "Confirmation Message",
-    buttonContainerClassName: "flex justify-center gap-2 mt-4",
+    modalSize: 'modal-sm',
+    titleClassName: '',
+    align: 'justify-center flex items-center',
+    content: 'Confirmation Message',
+    buttonContainerClassName: 'flex justify-center gap-2 mt-4',
     onYes: (close) => {
       close();
     },
-    onYesLabel: "Yes",
-    onYesClassName: "btn primary px-8 w-full",
+    onYesLabel: 'Yes',
+    onYesClassName: 'btn primary px-8 w-full',
     onNo: (close) => {
       close();
     },
-    onNoLabel: "No",
-    onNoClassName: "btn light px-8 w-full",
+    onNoLabel: 'No',
+    onNoClassName: 'btn light px-8 w-full',
     ...options,
   };
 
@@ -226,12 +226,12 @@ export const showAlert = (options) => {
 
   const prevClassName = document.body.className;
   const prevElem = document.activeElement;
-  document.body.className = "overflow-hidden";
+  document.body.className = 'overflow-hidden';
 
   const onClose = () => {
     try {
-      dialogRef.classList.add("exit");
-      setBackgroundRef.classList.add("exit");
+      dialogRef.classList.add('exit');
+      setBackgroundRef.classList.add('exit');
       if (opt.onCloseCallback) {
         opt.onCloseCallback();
       }
@@ -273,13 +273,13 @@ export const showAlert = (options) => {
     }
   };
 
-  document.addEventListener("keydown", escFunction, false);
+  document.addEventListener('keydown', escFunction, false);
 
   const renderContent = () => {
-    if (typeof opt.content === "function") return opt.content(onClose);
-    if (typeof opt.content === "string")
+    if (typeof opt.content === 'function') return opt.content(onClose);
+    if (typeof opt.content === 'string')
       return <div className="px-3">{opt.content}</div>;
-    return "n/a";
+    return 'n/a';
   };
 
   render(

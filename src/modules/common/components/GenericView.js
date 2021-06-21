@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import cn from "classnames";
-import moment from "moment";
+import React from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+import moment from 'moment';
 
 const ViewContext = React.createContext();
 
@@ -12,7 +12,7 @@ const validateEmail = (email) => {
 
 const validateIfDate = (value, isDate) => {
   if (isDate) {
-    return moment(value, moment.ISO_8601, true).format("ll");
+    return moment(value, moment.ISO_8601, true).format('ll');
   }
   return value;
 };
@@ -25,9 +25,9 @@ export const ViewItem = ({
   isDate,
 }) => {
   const { data, labelWidth, trClassName } = React.useContext(ViewContext);
-  const val = typeof data[name] === "undefined" ? "-" : data[name];
+  const val = typeof data[name] === 'undefined' ? '-' : data[name];
   const value =
-    typeof name === "function" ? name(data) : validateIfDate(val, isDate);
+    typeof name === 'function' ? name(data) : validateIfDate(val, isDate);
 
   return (
     <tr
@@ -39,12 +39,12 @@ export const ViewItem = ({
         <span>{label}</span>
       </td>
       <td
-        className={cn("text-sm text-gray-500 pr-2 py-2", {
+        className={cn('text-sm text-gray-500 pr-2 py-2', {
           [`${className}`]: className,
           capitalize: !validateEmail(value),
         })}
       >
-        {(!value || typeof value === "object") && typeof name !== "function" ? (
+        {(!value || typeof value === 'object') && typeof name !== 'function' ? (
           <span>&nbsp;</span>
         ) : (
           value
@@ -55,10 +55,10 @@ export const ViewItem = ({
 };
 
 ViewItem.defaultProps = {
-  labelClassName: "text-xs text-gray-400 pl-2 py-1.5",
+  labelClassName: 'text-xs text-gray-400 pl-2 py-1.5',
   className: false,
   isDate: false,
-  label: "",
+  label: '',
 };
 
 ViewItem.propTypes = {
@@ -88,7 +88,7 @@ function GenericView({ data, labelWidth, trClassName, children }) {
 
 GenericView.defaultProps = {
   children: null,
-  labelWidth: "auto",
+  labelWidth: 'auto',
   trClassName: false,
   data: {},
 };

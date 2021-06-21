@@ -1,6 +1,6 @@
-import React from "react";
-import Avatar from "react-avatar";
-import PropTypes from "prop-types";
+import React from 'react';
+import Avatar from 'react-avatar';
+import PropTypes from 'prop-types';
 // import placeholder from "assets/images/placeholder.svg";
 
 function AvatarImage({ className, name, testSize, src, ...rest }) {
@@ -18,8 +18,8 @@ function AvatarImage({ className, name, testSize, src, ...rest }) {
   );
 }
 AvatarImage.defaultProps = {
-  className: "",
-  name: "Name",
+  className: '',
+  name: 'Name',
   testSize: 2,
   src: null,
 };

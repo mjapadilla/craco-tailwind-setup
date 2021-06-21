@@ -1,8 +1,8 @@
-import { debounce } from "lodash";
-import { closeModal } from "modules/common/modal";
-import React from "react";
-import { useHistory } from "react-router-dom";
-import * as actions from "../actions";
+import { debounce } from 'lodash';
+import { closeModal } from 'modules/common/modal';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import * as actions from '../actions';
 
 const logout = debounce(() => {
   closeModal();
@@ -17,7 +17,7 @@ function Logout() {
       logout();
     }, 1000);
     return () => {
-      history.push("/");
+      history.push('/');
       clearInterval(timer);
     };
   }, [history]);

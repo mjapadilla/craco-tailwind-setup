@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function ScreenLoader({ label }) {
   return (
@@ -12,7 +12,7 @@ function ScreenLoader({ label }) {
 }
 
 ScreenLoader.defaultProps = {
-  label: "Loading...",
+  label: 'Loading...',
 };
 
 ScreenLoader.propTypes = {

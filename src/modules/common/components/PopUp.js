@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // This is component is need tailwind 2.2 version to work
 
@@ -49,8 +49,8 @@ function PopUp({
     const handleClearToggle = (e) => {
       try {
         const elem = document.getElementById(id);
-        const alertElem = document.getElementById("alert-root");
-        const modalElem = document.getElementById("modal-root");
+        const alertElem = document.getElementById('alert-root');
+        const modalElem = document.getElementById('modal-root');
         if (
           e.target !== elem &&
           !elem.contains(e.target) &&
@@ -68,10 +68,10 @@ function PopUp({
     };
 
     if (autoClose && isShow) {
-      document.addEventListener("click", handleClearToggle, false);
+      document.addEventListener('click', handleClearToggle, false);
     }
     return () => {
-      document.removeEventListener("click", handleClearToggle, false);
+      document.removeEventListener('click', handleClearToggle, false);
     };
   }, [autoClose, id, isShow]);
 
@@ -86,10 +86,10 @@ function PopUp({
     };
 
     if (!autoClose && isShow) {
-      document.addEventListener("keydown", escFunction, false);
+      document.addEventListener('keydown', escFunction, false);
     }
     return () => {
-      document.removeEventListener("keydown", escFunction, false);
+      document.removeEventListener('keydown', escFunction, false);
     };
   }, [autoClose, isShow]);
 
@@ -111,7 +111,7 @@ function PopUp({
         <div
           id={id}
           className={`${positionClassName} ${sizeClassName} absolute rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform z-40 ${
-            !animate ? "opacity-0 scale-95" : "opacity-100 scale-100"
+            !animate ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
           }`}
           role="menu"
         >
@@ -143,7 +143,7 @@ function PopUp({
 
 PopUp.defaultProps = {
   children: {},
-  id: "option-menu",
+  id: 'option-menu',
   render: (
     <svg
       className="h-5 w-5"
@@ -156,9 +156,9 @@ PopUp.defaultProps = {
   ),
   autoClose: false,
   buttonClassName:
-    "bg-gray-100 rounded-full flex items-center text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-primary-500",
-  positionClassName: "origin-top-right right-0",
-  sizeClassName: "w-56",
+    'bg-gray-100 rounded-full flex items-center text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-primary-500',
+  positionClassName: 'origin-top-right right-0',
+  sizeClassName: 'w-56',
   closePopUp: false,
   withClose: false,
 };
